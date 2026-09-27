@@ -1,0 +1,32 @@
+.links {
+  display: flex;
+  gap: clamp(14px, 2.2vw, 28px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-type);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--manila);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--dur-fast) ease;
+}
+
+.link:hover,
+.link[aria-current] {
+  color: var(--lamp);
+}
+
+.link[aria-current] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}

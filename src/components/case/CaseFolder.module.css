@@ -1,0 +1,342 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-folder);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 24px;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--backdrop);
+}
+
+.folder {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-folder);
+  max-height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--manila);
+  border-radius: var(--radius-folder);
+  box-shadow: var(--shadow-open-folder);
+  color: var(--ink);
+}
+
+.mobile {
+  padding: 0;
+}
+
+.mobile .folder {
+  height: 100%;
+  border-radius: 0;
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  opacity: 0;
+  background: var(--manila-tab);
+  transform-origin: top center;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-type);
+  letter-spacing: 0.2em;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.flap[hidden] {
+  display: none;
+}
+
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px clamp(18px, 4vw, 40px);
+  background: var(--manila-tab);
+  border-bottom: 1px solid var(--divider-folder);
+}
+
+.barLabel {
+  font-family: var(--font-type);
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.close {
+  flex-shrink: 0;
+  background: var(--charcoal);
+  color: var(--manila);
+  border: 0;
+  padding: 10px 16px;
+  min-height: 44px;
+  font-family: var(--font-type);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  border-radius: var(--radius-chip);
+  transition: color var(--dur-fast) ease;
+}
+
+.close:hover {
+  color: var(--lamp);
+}
+
+.body {
+  padding: clamp(22px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 40px);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h2-folder);
+  line-height: 1;
+}
+
+.title:focus-visible {
+  box-shadow: none;
+  text-decoration: underline 2px var(--lamp);
+  text-underline-offset: 8px;
+}
+
+.filed {
+  font-family: var(--font-type);
+  font-size: var(--fs-filed);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.stampWrap {
+  display: inline-block;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2vw, 24px);
+  align-items: flex-start;
+}
+
+.photo {
+  flex: var(--grow, 1) 1 0px;
+  min-width: var(--min-w, 200px);
+  transform: rotate(var(--rot, 0deg));
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+.brief {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.briefTitle {
+  margin: 0;
+  font-family: var(--font-type);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+.briefPara {
+  margin: 0;
+  font-size: var(--fs-brief);
+  line-height: var(--lh-narrative);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.facts {
+  background: var(--facts-white);
+  border: 1px solid var(--divider-facts);
+  border-radius: var(--radius-facts);
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: var(--shadow-facts);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.factsTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+.factList {
+  margin: 0;
+  padding: 0 0 0 18px;
+  display: grid;
+  gap: 10px;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--charcoal);
+}
+
+.factList li {
+  padding-left: 2px;
+}
+
+.factsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--divider-facts-soft);
+  padding-top: 16px;
+}
+
+.toolsLabel {
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+}
+
+.links {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.linkText {
+  font-weight: 600;
+  font-size: 15.5px;
+}
+
+.note {
+  font-family: var(--font-type);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px dashed var(--divider-folder-foot);
+  padding-top: clamp(18px, 2.5vw, 24px);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.pageBtn {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1.5px solid var(--charcoal);
+  padding: 10px 16px;
+  min-height: 44px;
+  border-radius: var(--radius-chip);
+  cursor: pointer;
+  transition:
+    box-shadow var(--dur-hover) var(--ease-out-soft),
+    transform var(--dur-hover) var(--ease-out-soft),
+    color var(--dur-fast) ease;
+}
+
+.prev {
+  align-items: flex-start;
+  text-align: left;
+  background: transparent;
+  color: var(--charcoal);
+}
+
+.prev:hover,
+.prev:focus-visible {
+  box-shadow: var(--shadow-nav-btn-glow-soft);
+  transform: translateY(-2px);
+}
+
+.prev:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-nav-btn-glow-soft);
+}
+
+.next {
+  align-items: flex-end;
+  text-align: right;
+  background: var(--charcoal);
+  color: var(--manila);
+}
+
+.next:hover,
+.next:focus-visible {
+  color: var(--lamp);
+  box-shadow: var(--shadow-nav-btn-glow);
+  transform: translateY(-2px);
+}
+
+.pageDir {
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pageName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pageBtn:hover,
+  .pageBtn:focus-visible {
+    transform: none;
+  }
+}

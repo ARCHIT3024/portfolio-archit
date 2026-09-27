@@ -1,0 +1,14 @@
+# Cloudflare Pages project config. Secrets (RESEND_API_KEY, TURNSTILE_SECRET_KEY) and the private
+# recipient CONTACT_TO are set as encrypted Pages variables in production and in .dev.vars locally — never here.
+name = "archit-khandelwal"
+compatibility_date = "2026-09-01"
+pages_build_output_dir = "./dist"
+
+[vars]
+CONTACT_FROM = "Case File <onboarding@resend.dev>"
+ALLOWED_ORIGIN = "https://archit-khandelwal.pages.dev"
+
+# Optional per-IP rate limit (docs/security.md §3.6). Create the namespace, then uncomment.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "<namespace id>"

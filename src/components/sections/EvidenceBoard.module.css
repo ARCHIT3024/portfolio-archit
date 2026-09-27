@@ -1,0 +1,75 @@
+.section {
+  padding: var(--section-pad-y) clamp(12px, 4vw, 48px);
+  background: var(--wall);
+}
+
+.inner {
+  max-width: var(--max-board);
+  margin: 0 auto;
+}
+
+/* Cork in a wooden frame */
+.frame {
+  border: clamp(8px, 1.2vw, 14px) solid var(--cork-frame);
+  border-radius: var(--radius-facts);
+  box-shadow: var(--shadow-board);
+  background-color: var(--cork);
+  background-image:
+    radial-gradient(var(--cork-dot-dark) 1px, transparent 1.6px),
+    radial-gradient(var(--cork-dot-light) 1px, transparent 1.6px);
+  background-size:
+    7px 7px,
+    11px 11px;
+  background-position:
+    0 0,
+    3px 5px;
+}
+
+.cards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slot {
+  position: relative;
+  z-index: 2;
+  transform: rotate(var(--rot, 0deg));
+}
+
+/* ≥ 1000px: fixed 1200×1060 canvas, scaled to fit */
+.board {
+  --board-scale: 1;
+  position: relative;
+  height: calc(1060px * var(--board-scale));
+}
+
+.board .canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1200px;
+  height: 1060px;
+  transform: scale(var(--board-scale));
+  transform-origin: 0 0;
+}
+
+.board .cards {
+  position: absolute;
+  inset: 0;
+}
+
+.board .slot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 384px;
+}
+
+/* 760–999px (and below): a grid of cards, no string */
+.stacked .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 44px 28px;
+  padding: clamp(32px, 5vw, 48px) clamp(16px, 4vw, 32px);
+}

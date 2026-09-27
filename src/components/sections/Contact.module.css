@@ -1,0 +1,77 @@
+.section {
+  padding: var(--section-pad-y) var(--gutter);
+  background: var(--kraft);
+}
+
+.inner {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* The heading's own bottom margin is replaced by the column gap here. */
+.left > div:first-child {
+  margin-bottom: 0;
+}
+
+.intro {
+  margin: 0;
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  max-width: 40ch;
+  text-wrap: pretty;
+}
+
+.card {
+  margin: 8px 0 0;
+  background: var(--index-paper);
+  padding: clamp(20px, 3vw, 30px);
+  box-shadow: var(--shadow-note);
+  display: grid;
+  gap: 16px;
+  transform: rotate(-0.6deg);
+}
+
+.card dd {
+  font-size: 16.5px;
+}
+
+.mail {
+  word-break: break-word;
+}
+
+.hideouts {
+  display: flex;
+  gap: 12px;
+}
+
+.hideout {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.resume [aria-disabled='true'] {
+  padding-inline: 22px;
+}
+
+.todo {
+  font-family: var(--font-type);
+  font-size: 12px;
+  color: var(--ink);
+}

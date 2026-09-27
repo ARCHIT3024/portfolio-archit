@@ -1,0 +1,8 @@
+dist
+node_modules
+design
+raw-assets
+temp
+public/images
+package-lock.json
+*.md

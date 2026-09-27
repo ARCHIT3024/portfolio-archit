@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://archit-khandelwal.pages.dev/sitemap.xml

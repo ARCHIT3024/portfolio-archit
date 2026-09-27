@@ -1,0 +1,32 @@
+.outer,
+.inner,
+.evidence {
+  position: absolute;
+  z-index: 2;
+  border: 3px solid var(--paperclip);
+}
+
+.outer {
+  top: -24px;
+  left: 36px;
+  width: 22px;
+  height: 66px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-clip);
+}
+
+.inner {
+  top: -14px;
+  left: 41px;
+  width: 12px;
+  height: 46px;
+  border-radius: 8px;
+}
+
+.evidence {
+  top: -18px;
+  left: 22px;
+  width: 18px;
+  height: 54px;
+  border-radius: 10px;
+}

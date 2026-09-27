@@ -1,0 +1,209 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-intro);
+  background: var(--intro-black);
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  background-color: var(--kraft);
+}
+
+.clear {
+  background: transparent !important;
+}
+
+/* Desk props */
+.note {
+  position: absolute;
+  left: clamp(16px, 9vw, 160px);
+  top: clamp(80px, 16vh, 160px);
+  width: min(360px, 78vw);
+  transform: rotate(-3deg);
+  background: var(--index-paper);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-intro-note);
+}
+
+.note p {
+  margin: 0;
+  font-family: var(--font-type);
+  font-size: var(--fs-note);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.ring {
+  position: absolute;
+  right: 12%;
+  top: 12%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 7px solid var(--coffee-ring);
+}
+
+.pencil {
+  position: absolute;
+  left: 14%;
+  bottom: 14%;
+  width: 220px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--pencil);
+  transform: rotate(18deg);
+  box-shadow: var(--shadow-pencil);
+}
+
+/* The case file */
+.folder {
+  position: absolute;
+  left: clamp(16px, 56%, calc(100% - 316px));
+  top: clamp(300px, 50vh, calc(100% - 280px));
+  width: min(300px, 76vw);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transform: rotate(4deg);
+  text-align: left;
+  transition: transform var(--dur-hover) var(--ease-out-soft);
+}
+
+.folder:hover {
+  transform: rotate(2deg) scale(1.03);
+}
+
+.folder:focus-visible {
+  box-shadow: none;
+}
+
+.folder:focus-visible .body {
+  box-shadow: var(--focus-ring), var(--shadow-intro-folder);
+}
+
+.morphing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none;
+  transition: none;
+}
+
+.morphing .body {
+  aspect-ratio: auto;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.body {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--manila);
+  border-radius: 0 8px 8px 8px;
+  box-shadow: var(--shadow-intro-folder);
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  background: var(--manila);
+  border-radius: 0 8px 8px 8px;
+  transform-origin: left center;
+  box-shadow: var(--shadow-cover-edge);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.coverName {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--charcoal);
+}
+
+.coverStamp {
+  border: 2.5px solid var(--string-red);
+  color: var(--string-red);
+  font-family: var(--font-type);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  padding: 4px 7px 3px;
+  transform: rotate(-8deg);
+}
+
+/* The darkness, with a flashlight-shaped hole */
+.dark {
+  --beam-x: 50%;
+  --beam-y: 45%;
+  --beam-r: 130px;
+  --beam-r-inner: 72px;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--beam-x) var(--beam-y),
+    var(--beam-core) 0,
+    var(--beam-clear) var(--beam-r-inner),
+    var(--beam-dark) var(--beam-r)
+  );
+}
+
+.lit {
+  display: none;
+}
+
+.hint {
+  position: absolute;
+  top: clamp(18px, 5vh, 44px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 16px;
+  font-family: var(--font-type);
+  font-size: var(--fs-hint);
+  letter-spacing: 0.08em;
+  color: var(--manila-tab);
+  pointer-events: none;
+  transition: opacity var(--dur-hint) ease;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.skip {
+  position: absolute;
+  right: clamp(16px, 4vw, 40px);
+  bottom: clamp(16px, 4vw, 40px);
+  z-index: 5;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid var(--ink-muted);
+  color: var(--manila);
+  font-family: var(--font-type);
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition:
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease;
+}
+
+.skip:hover {
+  border-color: var(--lamp);
+  color: var(--lamp);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folder,
+  .folder:hover {
+    transition: none;
+    transform: rotate(4deg);
+  }
+}

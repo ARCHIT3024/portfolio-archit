@@ -1,0 +1,29 @@
+.tab {
+  display: inline-flex;
+  background: var(--manila-tab);
+  font-family: var(--font-type);
+  color: var(--ink);
+}
+
+.hero {
+  padding: 12px 26px 10px;
+  border-radius: var(--radius-tab) var(--radius-tab) 0 0;
+  font-size: var(--fs-hero-tab);
+  letter-spacing: 0.16em;
+}
+
+.history {
+  padding: 10px 20px 8px;
+  border-radius: var(--radius-tab-sm) var(--radius-tab-sm) 0 0;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro {
+  display: inline-block;
+  padding: 8px 16px 6px;
+  border-radius: var(--radius-tab-sm) var(--radius-tab-sm) 0 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}

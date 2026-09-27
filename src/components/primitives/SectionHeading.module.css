@@ -1,0 +1,41 @@
+.head {
+  margin-bottom: var(--section-head-gap);
+}
+
+.solo {
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  color: var(--charcoal);
+}
+
+.subhead {
+  margin: 12px 0 0;
+  font-family: var(--font-type);
+  font-size: var(--fs-subhead);
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.dark .title {
+  color: var(--manila);
+}
+
+.dark .subhead {
+  color: var(--manila-tab);
+}
+
+.center {
+  text-align: center;
+}
+
+.center .subhead {
+  margin-inline: auto;
+  max-width: 40ch;
+}

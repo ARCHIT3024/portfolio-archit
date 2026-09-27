@@ -1,0 +1,36 @@
+.wrap {
+  position: relative;
+}
+
+.card {
+  margin: 0;
+  background-color: var(--index-card);
+  background-image:
+    linear-gradient(var(--index-card) 0 0),
+    repeating-linear-gradient(var(--index-card) 0 31px, var(--index-rule) 31px 32px);
+  background-size:
+    100% 6px,
+    100% 100%;
+  background-repeat: no-repeat, repeat;
+  border-top: 3px solid var(--index-margin);
+  padding: 26px 26px 22px;
+  box-shadow: var(--shadow-paper-lg);
+}
+
+.term {
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+.detail {
+  margin: 3px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.strong {
+  font-weight: 600;
+}

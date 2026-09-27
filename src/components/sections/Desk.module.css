@@ -1,0 +1,194 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(120px, 14vw, 180px) var(--gutter) clamp(64px, 8vw, 120px);
+  background: var(--desk-glow), var(--desk-dark);
+}
+
+/* The hanging lamp */
+.lamp span {
+  position: absolute;
+  left: 50%;
+}
+
+.cord {
+  top: 0;
+  width: 2px;
+  height: 48px;
+  margin-left: -1px;
+  background: var(--rule-dark);
+}
+
+.shade {
+  top: 48px;
+  width: 150px;
+  height: 50px;
+  margin-left: -75px;
+  background: var(--lamp-shade);
+  border-radius: 75px 75px 5px 5px;
+}
+
+.bulb {
+  top: 94px;
+  width: 104px;
+  height: 8px;
+  margin-left: -52px;
+  border-radius: 50%;
+  background: var(--lamp);
+  box-shadow: var(--shadow-bulb);
+}
+
+.inner {
+  position: relative;
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+.inner > div:first-child {
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: clamp(20px, 3vw, 32px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid li {
+  display: flex;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  cursor: pointer;
+  background: var(--index-paper);
+  color: var(--ink);
+  padding: 24px 22px 22px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transform: rotate(var(--rot, 0deg));
+  box-shadow: var(--shadow-desk-card);
+  transition:
+    box-shadow var(--dur-desk) var(--ease-out-soft),
+    transform var(--dur-desk) var(--ease-out-soft);
+}
+
+.card[aria-expanded='true'] {
+  transform: rotate(var(--rot, 0deg)) translateY(-4px);
+  box-shadow: var(--shadow-desk-open);
+}
+
+.card:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-desk-card);
+}
+
+.card[aria-expanded='true']:focus-visible {
+  box-shadow: var(--shadow-desk-open);
+}
+
+.tack {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--kraft);
+  background: var(--desk-dark);
+}
+
+.cat {
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  padding-right: 30px;
+}
+
+.obj {
+  font-family: var(--font-display);
+  font-size: var(--fs-desk-obj);
+  line-height: 1.1;
+  margin-top: -4px;
+}
+
+.note {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-muted);
+  font-style: italic;
+  margin-top: -6px;
+}
+
+.drawer {
+  position: relative;
+  display: block;
+  flex: 1;
+  border-top: 1px dashed var(--divider-desk);
+  padding-top: 14px;
+}
+
+.hint {
+  position: absolute;
+  inset: 14px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-type);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  transition: opacity var(--dur-fast) ease;
+}
+
+.detail {
+  display: block;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--dur-examine) var(--ease-out-soft),
+    transform var(--dur-examine) var(--ease-out-soft);
+}
+
+.card[aria-expanded='true'] .hint {
+  opacity: 0;
+}
+
+.card[aria-expanded='true'] .detail {
+  opacity: 1;
+  transform: none;
+}
+
+.text {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+/* Reduced motion: the glow only — no lift, no rise. */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .detail,
+  .hint {
+    transition: none;
+  }
+
+  .card[aria-expanded='true'] {
+    transform: rotate(var(--rot, 0deg));
+  }
+
+  .detail {
+    transform: none;
+  }
+}

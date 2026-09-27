@@ -1,0 +1,14 @@
+.lamp {
+  --lamp-x: 50%;
+  --lamp-y: 38%;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lamp);
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--lamp-x) var(--lamp-y),
+    var(--lamp-light-core) 0,
+    var(--lamp-light-mid) 260px,
+    var(--lamp-light-edge) 660px
+  );
+}

@@ -1,0 +1,12 @@
+.pin {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  margin-left: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--pin-hi), var(--oxblood) 70%);
+  box-shadow: var(--shadow-pin);
+  z-index: 3;
+}

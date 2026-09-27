@@ -1,0 +1,52 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid var(--ink-muted);
+  color: var(--manila);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-hover) ease;
+}
+
+.toggle:hover {
+  border-color: var(--lamp);
+  box-shadow: var(--shadow-pill-glow);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--lamp);
+  box-shadow: var(--shadow-lamp-dot);
+}
+
+/* Phones: the pill shrinks to its lamp; the label stays for screen readers. */
+@media (max-width: 479.98px) {
+  .toggle {
+    justify-content: center;
+    min-width: 44px;
+    padding: 7px;
+  }
+
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

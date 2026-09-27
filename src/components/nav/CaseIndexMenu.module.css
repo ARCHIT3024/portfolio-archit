@@ -1,0 +1,120 @@
+.menu {
+  display: flex;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid var(--ink-muted);
+  color: var(--manila);
+  border-radius: var(--radius-pill);
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-hover) ease;
+}
+
+.button:hover,
+.button[aria-expanded='true'] {
+  border-color: var(--lamp);
+  box-shadow: var(--shadow-pill-glow);
+}
+
+/* Three typed dashes */
+.glyph {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.glyph span {
+  display: block;
+  width: 12px;
+  height: 0;
+  border-top: 1.5px dashed currentColor;
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: var(--gutter);
+  width: min(360px, calc(100vw - 2 * var(--gutter)));
+  background-color: var(--index-paper);
+  border-top: 3px solid var(--index-margin);
+  box-shadow: var(--shadow-paper);
+  transform: rotate(-0.4deg);
+  padding: 10px 0 12px;
+  color: var(--ink);
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li + li {
+  border-top: 1px solid var(--index-rule);
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-height: 48px;
+  padding: 10px 22px 8px 19px;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.row:hover {
+  color: var(--oxblood);
+}
+
+.row[aria-current] {
+  border-left-color: var(--lamp);
+}
+
+.num {
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--oxblood);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 24px);
+  line-height: 1.15;
+}
+
+@media (max-width: 759.98px) {
+  .panel {
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: auto;
+    transform: none;
+  }
+}
+
+@media (max-width: 359.98px) {
+  .button {
+    gap: 7px;
+    padding: 7px 10px;
+  }
+}

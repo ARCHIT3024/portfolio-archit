@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  line-height: 1.35;
+  padding: 4px 9px;
+  border-radius: var(--radius-chip);
+  color: var(--ink);
+}
+
+.desk {
+  font-size: 13.5px;
+  background: var(--chip-desk);
+}
+
+.facts {
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 4px 10px;
+  background: var(--chip-facts);
+}
+
+.history {
+  font-size: 13px;
+  background: var(--chip-history);
+}

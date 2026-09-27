@@ -1,0 +1,109 @@
+.form {
+  background-color: var(--index-card);
+  background-image: repeating-linear-gradient(var(--index-card) 0 35px, var(--form-rule) 35px 36px);
+  border-left: 2px solid var(--form-margin);
+  padding: clamp(24px, 4vw, 44px);
+  box-shadow: var(--shadow-sheet);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  transform: rotate(0.6deg);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: var(--font-type);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.input,
+.textarea {
+  font-size: 17px;
+  color: var(--ink);
+  outline: 2px solid transparent;
+  transition: border-color var(--dur-fast) ease;
+}
+
+.input {
+  border: 0;
+  border-bottom: 1.5px solid var(--placeholder-line);
+  border-radius: 0;
+  background: transparent;
+  padding: 10px 2px;
+  min-height: 44px;
+}
+
+.textarea {
+  border: 1.5px solid var(--placeholder-line);
+  background: var(--paper-wash);
+  padding: 10px 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--string-red);
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.challenge {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.challenge > div:empty {
+  display: none;
+}
+
+.turnstileNote {
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+
+.error {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--string-red);
+  background: var(--index-paper);
+  font-family: var(--font-type);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.submit {
+  align-self: flex-start;
+}
+
+.sent {
+  background: var(--index-paper);
+  padding: clamp(28px, 5vw, 56px);
+  box-shadow: var(--shadow-sheet);
+  transform: rotate(-1deg);
+}
+
+.sent p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-sent);
+  line-height: 1.25;
+  color: var(--charcoal);
+}

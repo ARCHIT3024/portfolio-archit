@@ -1,0 +1,48 @@
+.wrap {
+  display: inline-block;
+}
+
+.stamp {
+  display: inline-block;
+  transform: rotate(var(--rot, 0deg));
+  border: 3px solid var(--stamp-line);
+  color: var(--stamp-ink);
+  font-family: var(--font-type);
+  text-transform: uppercase;
+  border-radius: var(--radius-stamp);
+}
+
+.hero,
+.folder {
+  letter-spacing: 0.18em;
+  padding: 8px 14px 6px;
+  --stamp-bg: var(--manila);
+  box-shadow:
+    inset 0 0 0 2px var(--stamp-bg),
+    inset 0 0 0 3.5px var(--stamp-line);
+}
+
+.hero {
+  font-size: var(--fs-stamp-lg);
+}
+
+.folder {
+  font-size: var(--fs-stamp-folder);
+}
+
+.card {
+  border-width: 2.5px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+  padding: 5px 9px 4px;
+  border-radius: var(--radius-chip);
+  text-align: center;
+  max-width: 170px;
+}
+
+.pending {
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  padding: 6px 10px 4px;
+}

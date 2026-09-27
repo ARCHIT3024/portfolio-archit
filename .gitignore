@@ -1,0 +1,46 @@
+# deps / build
+node_modules/
+dist/
+.wrangler/
+*.tsbuildinfo
+
+# session scratch
+temp/
+
+# secrets
+.env*
+!.env.example
+# public Turnstile site key for production builds (not a secret)
+!.env.production
+.dev.vars
+*.pem
+
+# owner originals (may carry EXIF/GPS)
+raw-assets/*
+!raw-assets/README.md
+
+# dev-only reference material (never shipped)
+docs/
+design/
+
+# AI tooling / local agent state
+CLAUDE.md
+.claude/
+graphify-out/
+
+# logs
+*.log
+npm-debug.log*
+
+# test output
+test-results/
+playwright-report/
+blob-report/
+coverage/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/

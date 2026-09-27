@@ -1,0 +1,8 @@
+/* Self-hosted fonts (@fontsource, latin subset — same coverage Google Fonts served the prototype). */
+@import '@fontsource/dm-serif-display/latin-400.css';
+@import '@fontsource/dm-serif-display/latin-400-italic.css';
+@import '@fontsource/ibm-plex-sans/latin-400.css';
+@import '@fontsource/ibm-plex-sans/latin-400-italic.css';
+@import '@fontsource/ibm-plex-sans/latin-500.css';
+@import '@fontsource/ibm-plex-sans/latin-600.css';
+@import '@fontsource/special-elite/latin-400.css';

@@ -1,0 +1,8 @@
+.label {
+  margin: 0;
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
