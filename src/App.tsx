@@ -65,6 +65,11 @@ export default function App() {
     document.documentElement.classList.toggle('js-motion', !reduced);
   }, [reduced]);
 
+  // Lights off turns the cursor into the torch (global.css).
+  useEffect(() => {
+    document.documentElement.classList.toggle('lights-off', lightsOff);
+  }, [lightsOff]);
+
   const registerCard = useCallback((id: CaseId, el: HTMLButtonElement | null) => {
     if (el) cardRefs.current.set(id, el);
     else cardRefs.current.delete(id);

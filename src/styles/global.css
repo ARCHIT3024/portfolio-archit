@@ -34,6 +34,16 @@ a:hover {
   color: var(--string-red);
 }
 
+a[href],
+button:not(:disabled) {
+  cursor: var(--cursor-examine);
+}
+
+/* Lights off: the pointer carries the lamp (set on <html> by App). */
+.lights-off {
+  cursor: var(--cursor-torch);
+}
+
 ::selection {
   background: var(--lamp);
   color: var(--charcoal);

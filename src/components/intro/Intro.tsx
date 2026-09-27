@@ -247,6 +247,7 @@ export function Intro({ heroTabRef, heroCardRef, onEnding, onDone }: IntroProps)
     lightsOn.current = true;
     cancelAnimationFrame(raf.current);
     hintRef.current?.classList.add(styles.hidden ?? '');
+    overlayRef.current?.classList.remove(styles.torch ?? '');
     const dark = darkRef.current;
     if (reduced || !dark) {
       endIntro();
@@ -268,7 +269,7 @@ export function Intro({ heroTabRef, heroCardRef, onEnding, onDone }: IntroProps)
   }, [endIntro, morph, reduced]);
 
   return (
-    <div ref={overlayRef} className={styles.overlay}>
+    <div ref={overlayRef} className={`${styles.overlay} ${reduced ? '' : styles.torch}`}>
       <div ref={sceneRef} className={styles.scene}>
         <div ref={noteRef} className={styles.note}>
           <p>{INTRO.note}</p>

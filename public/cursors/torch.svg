@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Colors mirror tokens.css (manila, ink-soft, lamp, oxblood); cursor images can't read CSS vars.
+       Drawn pointing up, then turned so the lens (the hotspot) faces up-left. -->
+  <g transform="rotate(-45 16 16)" stroke-linejoin="round">
+    <path d="M9.6 1.6H22.4V8.2L19.8 11.2V28.4H12.2V11.2L9.6 8.2Z" fill="#3b342c" stroke="#e9d5a6" stroke-width="1.6"/>
+    <rect x="11" y="2.8" width="10" height="2.6" rx=".8" fill="#f4c95d"/>
+    <rect x="14.6" y="14.6" width="2.8" height="4.2" rx="1" fill="#8e1e17"/>
+    <path d="M13.4 22.4H18.6M13.4 25H18.6" stroke="#e9d5a6" stroke-width=".9" stroke-linecap="round" opacity=".55"/>
+  </g>
+</svg>

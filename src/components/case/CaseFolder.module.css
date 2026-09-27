@@ -2,6 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-folder);
+  cursor: auto; /* above the lamp, so no torch in here */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +89,7 @@
   font-family: var(--font-type);
   font-size: 13px;
   letter-spacing: 0.12em;
-  cursor: pointer;
+  cursor: var(--cursor-examine);
   border-radius: var(--radius-chip);
   transition: color var(--dur-fast) ease;
 }
@@ -284,7 +285,7 @@
   padding: 10px 16px;
   min-height: 44px;
   border-radius: var(--radius-chip);
-  cursor: pointer;
+  cursor: var(--cursor-examine);
   transition:
     box-shadow var(--dur-hover) var(--ease-out-soft),
     transform var(--dur-hover) var(--ease-out-soft),

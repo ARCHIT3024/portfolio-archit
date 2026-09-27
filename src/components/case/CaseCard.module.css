@@ -10,7 +10,7 @@
   display: block;
   width: 100%;
   text-align: left;
-  cursor: pointer;
+  cursor: var(--cursor-examine);
   border: 0;
   background: var(--index-paper);
   color: var(--ink);

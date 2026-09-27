@@ -9,7 +9,7 @@
   color: var(--manila);
   border-radius: var(--radius-pill);
   padding: 7px 14px;
-  cursor: pointer;
+  cursor: var(--cursor-examine);
   font-family: var(--font-type);
   font-size: 12px;
   letter-spacing: 0.12em;

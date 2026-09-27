@@ -209,4 +209,18 @@
 
   /* Measured at runtime by <Nav/>; fallback keeps anchors sane before JS */
   --nav-h: 58px;
+
+  /* ── Cursors ──────────────────────────────────────────────── */
+  /* Touch and pen keep the system cursors; a mouse gets the case-file ones below. */
+  --cursor-examine: pointer;
+  --cursor-torch: auto;
+}
+
+/* Magnifier over anything clickable; a torch wherever the pointer is the light (intro, lights off).
+   Hotspots: the lens centre and the torch's lens. The keyword after each is the fallback. */
+@media (hover: hover) and (pointer: fine) {
+  :root {
+    --cursor-examine: url('/cursors/magnifier.svg') 13 13, pointer;
+    --cursor-torch: url('/cursors/torch.svg') 6 6, default;
+  }
 }
