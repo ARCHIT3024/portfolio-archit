@@ -82,6 +82,29 @@
     rgba(244, 201, 93, 0) 75%
   );
 
+  /* ── Cell block (404 page) ────────────────────────────────── */
+  --stone: #5e554b;
+  --stone-hi: #74695c;
+  --stone-dark: #3d3731;
+  --steel: var(--paperclip);
+  --steel-hi: #c3c4c6;
+  --steel-dim: rgba(139, 140, 142, 0.55);
+  --night: var(--intro-black);
+  --moon: var(--facts-white);
+  --sheet: var(--index-paper);
+  --sheet-shade: var(--divider-facts);
+  --scratch: rgba(191, 174, 138, 0.32);
+  --footprint: rgba(196, 162, 115, 0.55);
+  --ground: rgba(8, 7, 6, 0.75);
+  --ground-clear: rgba(8, 7, 6, 0);
+  --searchlight: rgba(255, 214, 130, 0.22);
+  --searchlight-soft: rgba(255, 214, 130, 0.07);
+  --searchlight-clear: rgba(255, 214, 130, 0);
+  --wall-vignette: rgba(6, 5, 4, 0.7);
+  --wall-vignette-clear: rgba(6, 5, 4, 0);
+  /* Cinder-block mortar: dark joints with a faint lit edge, staggered every other course. */
+  --cinder-blocks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cg fill='none' stroke-width='2'%3E%3Cpath stroke='%23000' stroke-opacity='.4' d='M0 1h120M0 31h120M1 0v30M61 30v30'/%3E%3Cpath stroke='%23fff' stroke-opacity='.05' d='M0 3h120M0 33h120M3 2v28M63 32v28'/%3E%3C/g%3E%3C/svg%3E");
+
   /* ── Typography ───────────────────────────────────────────── */
   --font-display: 'DM Serif Display', Georgia, serif;
   --font-body: 'IBM Plex Sans', system-ui, sans-serif;

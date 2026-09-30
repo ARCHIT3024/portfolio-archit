@@ -1,71 +1,637 @@
-/* Static 404 page (404.html). No JS; tokens and fonts shared with the site. */
+/*
+ * Static 404 page (404.html): Cell 404 is empty. A prison wall at night, the bars bent, the
+ * sheets knotted, footprints leading to the incident report. No framework; tokens and fonts are
+ * shared with the site. Every animation has a reduced-motion path at the bottom.
+ */
 @import './tokens.css';
 @import './fonts.css';
 @import './global.css';
 
-.nf {
+.nf-body {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 760px;
+  background: var(--wall);
+}
+
+/* ── Sky, header, barbed wire ─────────────────────────────── */
+
+.nf-sky {
+  background: var(--night);
+}
+
+.nf-top {
+  max-width: var(--max-content);
   margin: 0 auto;
-  padding: var(--section-pad-y) var(--gutter);
+  padding: 8px var(--gutter) 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+
+.nf-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-type);
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  color: var(--manila);
+  text-decoration: none;
+  border-radius: var(--radius-chip);
+  transition: color var(--dur-fast) ease;
+}
+
+.nf-brand:hover,
+.nf-brand:focus-visible {
+  color: var(--lamp);
+}
+
+.nf-dateline {
+  margin: 0;
+  font-family: var(--font-type);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--footer-muted);
+}
+
+.nf-wire {
+  display: block;
+  width: 100%;
+  height: 34px;
+}
+
+.nf-coil {
+  fill: none;
+  stroke: var(--steel-dim);
+  stroke-width: 1.6;
+}
+
+/* ── The wall ─────────────────────────────────────────────── */
+
+.nf-wall {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  flex: 1;
+  display: flex;
+  border-top: 10px solid var(--stone-dark);
+  background:
+    radial-gradient(
+      ellipse 90% 80% at 40% 35%,
+      var(--wall-vignette-clear) 45%,
+      var(--wall-vignette) 100%
+    ),
+    var(--cinder-blocks), var(--wall);
+  background-size:
+    auto,
+    144px 72px,
+    auto;
+  box-shadow: inset 0 16px 20px -12px var(--wall-vignette);
+}
+
+/* The searchlight: a pool of lamp light sweeping the wall, over the scene and under the report. */
+.nf-sweep {
+  position: absolute;
+  z-index: 2;
+  top: -12vmax;
+  left: 0;
+  width: 56vmax;
+  height: 56vmax;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle,
+    var(--searchlight) 0,
+    var(--searchlight-soft) 38%,
+    var(--searchlight-clear) 62%
+  );
+  transform: translate3d(-30vmax, 0, 0);
+  animation: nf-sweep 12s ease-in-out infinite alternate;
+}
+
+@keyframes nf-sweep {
+  from {
+    transform: translate3d(-30vmax, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(100vw - 26vmax), 8vh, 0);
+  }
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+
+.nf {
+  width: 100%;
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: clamp(20px, 3.4vw, 44px) var(--gutter) clamp(40px, 6vw, 72px);
+  display: grid;
+  gap: clamp(12px, 4vw, 56px);
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  .nf {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  }
+}
+
+/* ── The scene (SVG) ──────────────────────────────────────── */
+
+.nf-cell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  max-height: min(70vh, 620px);
+  overflow: visible;
+}
+
+@media (max-width: 999px) {
+  .nf-cell {
+    max-height: 360px;
+  }
+}
+
+@media (max-width: 759px) {
+  .nf-cell {
+    max-height: 300px;
+  }
+}
+
+.nf-stone {
+  fill: var(--stone);
+}
+
+.nf-stone-hi {
+  fill: var(--stone-hi);
+}
+
+.nf-reveal {
+  fill: var(--stone-dark);
+}
+
+.nf-night {
+  fill: var(--night);
+}
+
+.nf-moon {
+  fill: var(--moon);
+  opacity: 0.9;
+}
+
+.nf-stars {
+  fill: var(--moon);
+  opacity: 0.7;
+}
+
+.nf-plate {
+  font-family: var(--font-type);
+  font-size: 15px;
+  letter-spacing: 0.24em;
+  fill: var(--charcoal);
+}
+
+.nf-bars path,
+.nf-bars-hi path,
+.nf-tally path,
+.nf-cuff path,
+.nf-cuff ellipse,
+.nf-sheet,
+.nf-sheet-fold {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.nf-bars path {
+  stroke: var(--steel);
+  stroke-width: 7;
+}
+
+.nf-bars-hi path {
+  stroke: var(--steel-hi);
+  stroke-width: 1.6;
+  opacity: 0.7;
+}
+
+.nf-tally path {
+  stroke: var(--scratch);
+  stroke-width: 2.2;
+}
+
+.nf-dirt-in {
+  stop-color: var(--ground);
+}
+
+.nf-dirt-out {
+  stop-color: var(--ground-clear);
+}
+
+.nf-cuff path,
+.nf-cuff ellipse {
+  stroke: var(--steel);
+  stroke-width: 3.2;
+}
+
+.nf-cuff path:first-child {
+  stroke-width: 5;
+}
+
+/* Knotted bedsheets, swaying from the sill. */
+.nf-rope {
+  transform-box: view-box;
+  transform-origin: 210px 238px;
+  animation: nf-sway 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes nf-sway {
+  from {
+    transform: rotate(-1.2deg);
+  }
+  to {
+    transform: rotate(1.2deg);
+  }
+}
+
+.nf-sheet {
+  stroke: var(--sheet);
+  stroke-width: 16;
+}
+
+.nf-sheet-fold {
+  stroke: var(--sheet-shade);
+  stroke-width: 3;
+  stroke-dasharray: 10 14;
+}
+
+.nf-sheet-end,
+.nf-knot path,
+.nf-knot ellipse {
+  fill: var(--sheet);
+}
+
+.nf-knot path,
+.nf-knot ellipse {
+  stroke: var(--sheet-shade);
+  stroke-width: 1.5;
+}
+
+/* Footprints: they appear one step at a time, heading for the report. */
+.nf-step {
+  fill: var(--footprint);
+  animation: nf-step 260ms ease-out both;
+}
+
+.nf-step:nth-child(1) {
+  animation-delay: 1100ms;
+}
+.nf-step:nth-child(2) {
+  animation-delay: 1300ms;
+}
+.nf-step:nth-child(3) {
+  animation-delay: 1500ms;
+}
+.nf-step:nth-child(4) {
+  animation-delay: 1700ms;
+}
+.nf-step:nth-child(5) {
+  animation-delay: 1900ms;
+}
+.nf-step:nth-child(6) {
+  animation-delay: 2100ms;
+}
+
+@keyframes nf-step {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ── The incident report ──────────────────────────────────── */
+
+.nf-folder {
+  position: relative;
+  z-index: 3;
+  min-width: 0;
+  animation: nf-drop 560ms var(--ease-drop) 150ms both;
+}
+
+@keyframes nf-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) rotate(-1.5deg);
+  }
 }
 
 .nf-tab {
-  align-self: flex-start;
+  display: inline-block;
   background: var(--manila-tab);
   padding: 12px 26px 10px;
   border-radius: var(--radius-tab) var(--radius-tab) 0 0;
   font-family: var(--font-type);
   font-size: var(--fs-hero-tab);
   letter-spacing: 0.16em;
+  color: var(--ink);
 }
 
 .nf-card {
   background: var(--manila);
   border-radius: 0 var(--radius-folder-lg) var(--radius-folder-lg) var(--radius-folder-lg);
-  padding: clamp(28px, 5vw, 64px);
-  box-shadow: var(--shadow-folder);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
+  padding: clamp(24px, 4vw, 52px);
+  box-shadow: var(--shadow-open-folder);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'stamp   mug'
+    'title   mug'
+    'line    mug'
+    'facts   facts'
+    'actions actions';
+  align-content: start;
+  column-gap: clamp(16px, 3vw, 40px);
+  row-gap: 18px;
+}
+
+/* Small screens: one column, and the booking photo is clipped to the folder's corner instead. */
+@media (max-width: 759px) {
+  .nf-card {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'stamp'
+      'title'
+      'line'
+      'facts'
+      'actions';
+  }
 }
 
 .nf-stamp {
+  grid-area: stamp;
+  justify-self: start;
+  align-self: start;
   transform: rotate(-4deg);
   border: 3px solid var(--stamp-line);
+  box-shadow:
+    inset 0 0 0 2px var(--manila),
+    inset 0 0 0 3.5px var(--stamp-line);
   color: var(--stamp-ink);
   font-family: var(--font-type);
   font-size: var(--fs-stamp-lg);
   letter-spacing: 0.18em;
   padding: 8px 14px 6px;
   border-radius: var(--radius-stamp);
+  animation: nf-thump 300ms var(--ease-thump) 750ms both;
 }
 
-.nf h1 {
-  margin: 0;
+@keyframes nf-thump {
+  0% {
+    opacity: 0;
+    transform: rotate(-4deg) scale(2.4);
+  }
+  70% {
+    opacity: 1;
+    transform: rotate(-4deg) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-4deg) scale(1);
+  }
+}
+
+.nf-card h1 {
+  grid-area: title;
+  margin: 6px 0 0;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: var(--fs-h1);
   line-height: var(--lh-h1);
   color: var(--charcoal);
+  text-wrap: balance;
 }
 
 .nf-line {
+  grid-area: line;
   margin: 0;
   font-family: var(--font-type);
   font-size: var(--fs-tagline);
+  line-height: 1.4;
   color: var(--ink);
+  text-wrap: pretty;
+}
+
+/* The booking photo: height chart, placard, nobody in frame. */
+.nf-mug {
+  grid-area: mug;
+  position: relative;
+  align-self: start;
+  width: clamp(140px, 11vw, 160px);
+  margin: 4px 6px 0 0;
+  transform: rotate(3deg);
+  animation: nf-pin 560ms var(--ease-drop) 450ms both;
+}
+
+@keyframes nf-pin {
+  from {
+    opacity: 0;
+    transform: translateY(-36px) rotate(-4deg) scale(1.04);
+  }
+}
+
+.nf-mug-mount {
+  display: block;
+  background: var(--photo-paper);
+  padding: 8px 8px 10px;
+  box-shadow: var(--shadow-photo);
+}
+
+.nf-clip {
+  position: absolute;
+  z-index: 2;
+  top: -16px;
+  left: 22px;
+  width: 18px;
+  height: 54px;
+  border: 3px solid var(--paperclip);
+  border-radius: 10px;
+  box-shadow: var(--shadow-clip);
+}
+
+.nf-mug figcaption {
+  padding: 10px 2px 0;
+  font-family: var(--font-type);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.nf-mug-bg {
+  fill: var(--index-paper);
+}
+
+.nf-mug-rule {
+  fill: none;
+  stroke: var(--placeholder-line);
+  stroke-width: 1;
+}
+
+.nf-mug-feet {
+  font-family: var(--font-type);
+  font-size: 12px;
+  fill: var(--ink-muted);
+}
+
+.nf-mug-ghost {
+  fill: none;
+  stroke: var(--placeholder-line);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+}
+
+.nf-mug-board {
+  fill: var(--charcoal);
+}
+
+.nf-mug-board-text {
+  font-family: var(--font-type);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  fill: var(--manila);
+}
+
+@media (max-width: 759px) {
+  .nf-mug {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    width: clamp(84px, 21vw, 128px);
+    margin: 0;
+  }
+
+  .nf-clip {
+    top: -12px;
+    left: 14px;
+    width: 14px;
+    height: 42px;
+  }
+
+  .nf-mug-mount {
+    padding: 6px 6px 8px;
+  }
+
+  /* No room for the caption beside the stamp; screen readers still get it. */
+  .nf-mug figcaption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* The narrowest phones: the headline starts below the photo rather than under it. */
+@media (max-width: 359px) {
+  .nf-card h1 {
+    margin-top: 44px;
+  }
+}
+
+/* The facts, typed on an index card. */
+.nf-facts {
+  grid-area: facts;
+  margin: 8px 0 0;
+  padding: 4px clamp(16px, 2.4vw, 24px);
+  background: var(--index-card);
+  border-top: 3px solid var(--index-margin);
+  box-shadow: var(--shadow-paper);
+}
+
+.nf-facts > div {
+  display: grid;
+  grid-template-columns: 8.5em minmax(0, 1fr);
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--index-rule);
+}
+
+.nf-facts > div:last-child {
+  border-bottom: 0;
+}
+
+.nf-facts dt {
+  padding-top: 3px;
+  font-family: var(--font-type);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+
+.nf-facts dd {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.nf-facts strong {
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+.nf-path {
+  font-family: var(--font-type);
+  padding: 1px 6px;
+  background: var(--pending-paper);
+  border-radius: var(--radius-chip);
+  overflow-wrap: anywhere;
+}
+
+/* Wide folders: the four facts sit two by two, label over entry, to keep the report on one screen. */
+@media (min-width: 1000px) {
+  .nf-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+
+  .nf-facts > div {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 2px;
+  }
+
+  .nf-facts > div:nth-last-child(2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .nf-facts > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+
+.nf-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 6px;
 }
 
 .nf-back {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  margin-top: 8px;
   padding: 15px 24px;
   background: var(--charcoal);
   color: var(--manila);
@@ -81,4 +647,30 @@
 .nf-back:focus-visible {
   color: var(--lamp);
   box-shadow: var(--shadow-btn-glow);
+}
+
+.nf-alt {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
+  border-radius: var(--radius-chip);
+}
+
+/* ── Reduced motion: the scene holds still ────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-sweep,
+  .nf-rope,
+  .nf-step,
+  .nf-folder,
+  .nf-stamp,
+  .nf-mug {
+    animation: none;
+  }
+
+  /* Park the searchlight over the window. */
+  .nf-sweep {
+    transform: translate3d(-6vmax, 0, 0);
+  }
 }

@@ -3,21 +3,197 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>No file by that name — Case File</title>
+    <title>Cell 404: Escaped — Case File</title>
     <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#1F1C19" />
+    <meta name="theme-color" content="#0B0A09" />
+    <meta name="color-scheme" content="light" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/src/styles/not-found.css" />
+    <script type="module" src="/src/not-found.ts"></script>
   </head>
-  <body>
-    <main class="nf">
-      <div class="nf-tab">CASE FILE — MISFILED</div>
-      <div class="nf-card">
-        <span class="nf-stamp">404 · NOT ON RECORD</span>
-        <h1>No file by that name.</h1>
-        <p class="nf-line">Somebody's been in the cabinet.</p>
-        <a class="nf-back" href="/">Back to the case file →</a>
-      </div>
-    </main>
+  <body class="nf-body">
+    <div class="nf-sky">
+      <header class="nf-top">
+        <a class="nf-brand" href="/">A.K. · CASE FILE</a>
+        <p class="nf-dateline">BLOCK C · COUNTY LOCKUP · 02:13 A.M.</p>
+      </header>
+      <svg class="nf-wire" aria-hidden="true" focusable="false" preserveAspectRatio="none">
+        <defs>
+          <pattern id="nf-coil" width="48" height="34" patternUnits="userSpaceOnUse">
+            <ellipse class="nf-coil" cx="24" cy="18" rx="22" ry="12" />
+            <path class="nf-coil" d="M0 18h48M9 13l6 9M15 13l-6 9M33 13l6 9M39 13l-6 9" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="34" fill="url(#nf-coil)" />
+      </svg>
+    </div>
+
+    <div class="nf-wall">
+      <div class="nf-sweep" aria-hidden="true"></div>
+
+      <main class="nf">
+        <!-- The scene: cell window, bent bars, knotted sheets, a dropped shackle, footprints. -->
+        <svg class="nf-cell" viewBox="0 0 420 640" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="nf-dirt">
+              <stop offset="0" class="nf-dirt-in" />
+              <stop offset="1" class="nf-dirt-out" />
+            </radialGradient>
+          </defs>
+
+          <g class="nf-tally">
+            <path d="M348 76v34M356 76v34M364 76v34M372 76v34M342 102l38-20" />
+            <path d="M348 128v34M356 128v34M364 128v34M372 128v34M342 154l38-20" />
+            <path d="M348 180v34M356 180v34M364 180v34" />
+          </g>
+
+          <rect class="nf-stone" x="96" y="44" width="228" height="190" rx="3" />
+          <rect class="nf-night" x="122" y="66" width="176" height="142" />
+          <circle class="nf-moon" cx="262" cy="98" r="15" />
+          <g class="nf-stars">
+            <circle cx="146" cy="84" r="1.6" />
+            <circle cx="214" cy="78" r="1.2" />
+            <circle cx="284" cy="150" r="1.4" />
+            <circle cx="160" cy="180" r="1.1" />
+            <circle cx="236" cy="190" r="1.3" />
+          </g>
+          <path class="nf-reveal" d="M122 66h176v8H130v134h-8z" />
+          <rect class="nf-stone-hi" x="84" y="24" width="252" height="28" rx="2" />
+          <text class="nf-plate" x="210" y="44" text-anchor="middle">CELL 404</text>
+          <rect class="nf-stone-hi" x="82" y="228" width="256" height="16" rx="2" />
+
+          <g class="nf-bars">
+            <path d="M154 66V208" />
+            <path d="M188 66c0 34-20 44-20 71s20 37 20 71" />
+            <path d="M232 66c0 34 20 44 20 71s-20 37-20 71" />
+            <path d="M266 66V208" />
+          </g>
+          <g class="nf-bars-hi">
+            <path d="M152 66V208" />
+            <path d="M186 66c0 34-20 44-20 71s20 37 20 71" />
+            <path d="M230 66c0 34 20 44 20 71s-20 37-20 71" />
+            <path d="M264 66V208" />
+          </g>
+
+          <ellipse class="nf-dirt" fill="url(#nf-dirt)" cx="250" cy="622" rx="210" ry="20" />
+
+          <g class="nf-cuff">
+            <path d="M118 616a13 13 0 1 1 22 9" />
+            <ellipse cx="152" cy="622" rx="7" ry="4" />
+            <ellipse cx="165" cy="620" rx="4" ry="6.5" />
+            <ellipse cx="178" cy="622" rx="7" ry="4" />
+            <path d="M189 620a6 4 0 0 1 9-3" />
+          </g>
+
+          <g class="nf-rope">
+            <path
+              class="nf-sheet"
+              d="M206 128C208 170 214 214 210 240C204 320 218 390 208 470C200 530 206 560 202 590"
+            />
+            <path
+              class="nf-sheet-fold"
+              d="M206 128C208 170 214 214 210 240C204 320 218 390 208 470C200 530 206 560 202 590"
+            />
+            <path class="nf-sheet-end" d="M194 586l-4 26 7-8 4 12 4-13 6 10 1-27z" />
+            <g class="nf-knot">
+              <path d="M222 238l18 12-4 6-16-9zM198 242l-15 14 5 4 13-12z" />
+              <ellipse cx="209" cy="238" rx="16" ry="10" />
+              <path d="M224 330l18 10-4 6-16-8zM196 334l-16 12 5 4 14-10z" />
+              <ellipse cx="210" cy="332" rx="15" ry="9.5" />
+              <path d="M225 421l17 11-4 6-15-9zM197 425l-15 13 5 4 13-11z" />
+              <ellipse cx="211" cy="423" rx="15" ry="9.5" />
+              <path d="M218 521l16 11-4 6-14-9zM190 525l-14 12 5 4 12-10z" />
+              <ellipse cx="204" cy="523" rx="14" ry="9" />
+            </g>
+          </g>
+
+          <g class="nf-steps">
+            <g class="nf-step" transform="translate(242 612)">
+              <ellipse rx="8" ry="4.2" />
+              <ellipse cx="-12" rx="4" ry="3.4" />
+            </g>
+            <g class="nf-step" transform="translate(272 625)">
+              <ellipse rx="8" ry="4.2" />
+              <ellipse cx="-12" rx="4" ry="3.4" />
+            </g>
+            <g class="nf-step" transform="translate(302 612)">
+              <ellipse rx="8" ry="4.2" />
+              <ellipse cx="-12" rx="4" ry="3.4" />
+            </g>
+            <g class="nf-step" transform="translate(332 625)">
+              <ellipse rx="8" ry="4.2" />
+              <ellipse cx="-12" rx="4" ry="3.4" />
+            </g>
+            <g class="nf-step" transform="translate(362 612)">
+              <ellipse rx="8" ry="4.2" />
+              <ellipse cx="-12" rx="4" ry="3.4" />
+            </g>
+            <g class="nf-step" transform="translate(392 625)">
+              <ellipse rx="8" ry="4.2" />
+              <ellipse cx="-12" rx="4" ry="3.4" />
+            </g>
+          </g>
+        </svg>
+
+        <div class="nf-folder">
+          <div class="nf-tab">INCIDENT REPORT — CELL 404</div>
+          <article class="nf-card" aria-labelledby="nf-title">
+            <span class="nf-stamp">404 · ESCAPED</span>
+            <h1 id="nf-title">This page broke out.</h1>
+            <p class="nf-line">Bent the bars, knotted the sheets, gone before roll call.</p>
+
+            <figure class="nf-mug">
+              <span class="nf-clip" aria-hidden="true"></span>
+              <span class="nf-mug-mount">
+                <svg viewBox="0 0 200 240" aria-hidden="true" focusable="false">
+                  <rect class="nf-mug-bg" width="200" height="240" />
+                  <path class="nf-mug-rule" d="M0 40h200M0 80h200M0 120h200M0 160h200M0 200h200" />
+                  <g class="nf-mug-feet">
+                    <text x="6" y="36">7'</text>
+                    <text x="6" y="76">6'</text>
+                    <text x="6" y="116">5'</text>
+                    <text x="6" y="156">4'</text>
+                  </g>
+                  <circle class="nf-mug-ghost" cx="100" cy="92" r="30" />
+                  <path class="nf-mug-ghost" d="M40 240c4-66 34-88 60-88s56 22 60 88" />
+                  <rect class="nf-mug-board" x="54" y="174" width="92" height="46" rx="2" />
+                  <text class="nf-mug-board-text" x="100" y="193" text-anchor="middle">
+                    CELL 404
+                  </text>
+                  <text class="nf-mug-board-text" x="100" y="210" text-anchor="middle">
+                    NO. 0404
+                  </text>
+                </svg>
+              </span>
+              <figcaption>Booking photo. Subject not present.</figcaption>
+            </figure>
+
+            <dl class="nf-facts">
+              <div>
+                <dt>Inmate</dt>
+                <dd>The page you came for.</dd>
+              </div>
+              <div>
+                <dt>Last seen</dt>
+                <dd><code class="nf-path" id="nf-path">This address.</code></dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd><strong>At large.</strong> No file by that name.</dd>
+              </div>
+              <div>
+                <dt>Leads</dt>
+                <dd>Somebody's been in the cabinet. Start from the top.</dd>
+              </div>
+            </dl>
+
+            <div class="nf-actions">
+              <a class="nf-back" href="/">Back to the case file →</a>
+              <a class="nf-alt" href="/?intro=0#evidence">Search the Evidence Board</a>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
