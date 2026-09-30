@@ -38,47 +38,6 @@ landmarks. CI runs axe on both viewports and fails on serious violations.
 | Tests    | Vitest and React Testing Library; Playwright with axe (1440×900 and 390×844) |
 | CI       | GitHub Actions: audit, lint, typecheck, unit, build, e2e                  |
 
-## Getting started
-
-Requires **Node 22 or newer** (see `.nvmrc`).
-
-```bash
-npm ci
-npm run dev          # http://localhost:5173
-```
-
-Add `?intro=0` to the URL to skip the intro while you work.
-
-### Running the contact form locally
-
-The form needs the Pages Function, so run it through Wrangler instead of the Vite dev server:
-
-```bash
-cp .env.example .env.local        # Turnstile site key (the test key always passes)
-cp .dev.vars.example .dev.vars    # function secrets; fill in your own Resend key
-npm run pages:dev                 # builds, then serves dist/ + functions on :8788
-```
-
-`.env.local` and `.dev.vars` are gitignored. Never commit real keys.
-
-## Scripts
-
-| Command                  | What it does                                                           |
-| ------------------------ | ---------------------------------------------------------------------- |
-| `npm run dev`            | Vite dev server                                                        |
-| `npm run build`          | Typecheck and production build to `dist/`                              |
-| `npm run preview`        | Serve the production build on :4173                                    |
-| `npm run pages:dev`      | Build, then run the site and its functions under Wrangler              |
-| `npm run lint`           | ESLint (with jsx-a11y and react-hooks)                                 |
-| `npm run typecheck`      | `tsc -b --noEmit`                                                      |
-| `npm test`               | Vitest unit and component tests                                        |
-| `npm run test:e2e`       | Playwright on desktop and mobile viewports, with axe                   |
-| `npm run format`         | Prettier                                                               |
-| `npm run images`         | `raw-assets/` → resized AVIF/WebP in `public/images/`, EXIF stripped   |
-| `npm run og`             | Regenerate `public/og-image.png` from the built hero (needs `preview`) |
-
-To run Playwright on your installed Chrome instead of downloading Chromium, use
-`PW_CHANNEL=chrome npm run test:e2e`.
 
 ## Project layout
 
@@ -100,40 +59,3 @@ scripts/         image processing and OG image generation
 public/          static files, _headers (CSP and security headers), cursors, images
 tests/           e2e (Playwright) and unit tests
 ```
-
-## Images and links
-
-Original photos and screenshots go in `raw-assets/`, named as listed in
-[`raw-assets/README.md`](raw-assets/README.md). Then run `npm run images`. The script resizes each image,
-converts it to AVIF and WebP, strips metadata (including GPS) and writes the results to `public/images/`.
-Originals are never committed. Links are read from `raw-assets/links.md`. The site shows the design's
-placeholders for anything that hasn't been supplied.
-
-## Deploying to Cloudflare Pages
-
-Connect the repository in Cloudflare Pages with these settings:
-
-- **Build command:** `npm run build`
-- **Output directory:** `dist`
-- **Node version:** 22
-
-Pages picks up `functions/` automatically. Set these as **encrypted** environment variables in the
-Pages project, never in `wrangler.toml` or in a `VITE_*` variable:
-
-| Variable               | Purpose                                        |
-| ---------------------- | ---------------------------------------------- |
-| `RESEND_API_KEY`       | Sends the contact email                        |
-| `TURNSTILE_SECRET_KEY` | Verifies the Turnstile token server-side       |
-| `CONTACT_TO`           | Where tips are delivered                       |
-
-`VITE_TURNSTILE_SITE_KEY` is public and is baked in at build time. `CONTACT_FROM` and `ALLOWED_ORIGIN`
-live in `wrangler.toml`. Update `ALLOWED_ORIGIN` and the canonical URL in `index.html` if the project
-name or domain changes.
-
-## Security
-
-- A strict Content-Security-Policy and security headers in `public/_headers`.
-- No `innerHTML`, `dangerouslySetInnerHTML` or `eval`.
-- Every contact field is validated again on the server, the origin is checked and Turnstile is verified
-  before anything is sent.
-- Secrets exist only in encrypted Pages variables and the local, gitignored `.dev.vars`.
