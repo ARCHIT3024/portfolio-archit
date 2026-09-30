@@ -7,6 +7,15 @@ updates:
     groups:
       dev-dependencies:
         dependency-type: development
+    # Majors blocked upstream (Sep 2026): eslint-plugin-jsx-a11y peers eslint <=9, and
+    # typescript-eslint peers typescript <6.1. Lift these once both plugins support the new majors.
+    ignore:
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major']
   - package-ecosystem: github-actions
     directory: /
     schedule:
